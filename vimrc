@@ -1,7 +1,7 @@
-#vimrc
+"vimrc
 
-# pathogen: https://github.com/tpope/vim-pathogen
-# vim-airline: https://github.com/bling/vim-airline
+" pathogen: https://github.com/tpope/vim-pathogen
+" vim-airline: https://github.com/bling/vim-airline
 
 execute pathogen#infect()
 syntax on
