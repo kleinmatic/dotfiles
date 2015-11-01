@@ -1,5 +1,3 @@
-#screenrc
-
 # None of my own work. Munged from various other .screenrc recipes
 #
 # Don't use CTRL-A as the trigger because its stops the bash
@@ -17,8 +15,12 @@ attrcolor b ".I"
 
 # Change the hardstatus settings to give an window list at the bottom of the
 # screen with the current window highlighted
+# improved via http://www.kilobitspersecond.com/2014/02/10/understanding-gnu-screens-hardstatus-strings/
+
 hardstatus alwayslastline
-hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} |%C%A%{-}'
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
+#hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} | %`'
 
 # for shift right and left arrows
 bindkey ^[[1;2D prev
